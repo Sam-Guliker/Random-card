@@ -96,7 +96,6 @@ function App() {
           (
             <img 
               onClick={() => {getRandomCard()}}
-              onTouchEnd={() => {getRandomCard()}}
               src={randomCard.image}
               alt={randomCard.image}
               >
