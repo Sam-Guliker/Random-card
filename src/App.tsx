@@ -39,7 +39,6 @@ function App() {
   const [deckDataID, setDeckDataID] = useState<any>(null)
   const [randomCard, setRandomCard] = useState<any>(null)
   const [remainingCard, setRemainingCard] = useState<number>(52)
-  const [width, setWidth] = useState<number>(window.innerWidth)
 
   useEffect(() => {
      async function getCardsData() {
@@ -98,7 +97,9 @@ function App() {
             <img 
               onClick={() => {getRandomCard()}}
               onTouchEnd={() => {getRandomCard()}}
-              src={randomCard.image}>
+              src={randomCard.image}
+              alt={randomCard.image}
+              >
             </img>
           )
 
