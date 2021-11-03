@@ -63,7 +63,7 @@ function App() {
               setTimeout(() => {
                 setRandomCard(request.data.cards[0])
                 setRemainingCard(request.data.remaining)
-              }, 1000)
+              }, 100)
 
             }
           } catch(e) {
