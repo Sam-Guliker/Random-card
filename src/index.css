@@ -5,9 +5,47 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  background-color: #001514;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+
+  height: 100vh;
+  
+  margin: 0 2rem;
+
+  
+}
+
+img {
+  width: 100%;
+  margin: auto;
+}
+
+button {
+  font-size: 3rem;
+  font-family: 'Alegreya', serif;
+  margin: auto;
+
+  outline: 0;
+  border: none;
+  background: none;
+
+  color: #F7F4EA;
+
+  transform: skewY(-6deg);
+}
+
+@media (min-width: 768px){
+  img {width: 19%;}
 }
