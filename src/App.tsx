@@ -62,6 +62,10 @@ function App() {
         } else {
           setRandomCard(request.data.cards[0])
           setRemainingCard(request.data.remaining)
+
+          console.log(randomCard)
+          console.log(request.data.remaining)
+
         }
       } catch(e) {
         console.error(e)
@@ -87,12 +91,10 @@ function App() {
   return (
     <div className="App">
       <div className="card-container">
-
-        {console.log(deckData)}
-
         {randomCard === null ? (
             <button onClick={() => {getRandomCard()}}> Press to start!</button>
-          ):
+          )
+          :
           (
             <img 
               onClick={() => {getRandomCard()}}
