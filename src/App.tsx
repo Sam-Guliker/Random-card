@@ -104,7 +104,7 @@ function App() {
           )
 
         }
-        {remainingCard || remainingCard === 0 && 
+        {remainingCard === 0 && 
           <button onClick={() => {shuffleDeck()}}> Shuffle Deck!</button>
         } 
       </div>
