@@ -1,7 +1,6 @@
-import React, { FunctionComponent, useState, useEffect} from 'react';
+import React, { useState, useEffect} from 'react';
 import axios from 'axios'
 
-import logo from './logo.svg';
 import './App.css';
 
 /*
@@ -42,8 +41,6 @@ function App() {
   const [remainingCard, setRemainingCard] = useState<number>(52)
   const [width, setWidth] = useState<number>(window.innerWidth)
 
-  let isMobile: boolean = (width < 768)
-
   useEffect(() => {
      async function getCardsData() {
       try {
@@ -56,10 +53,6 @@ function App() {
     } 
     getCardsData()
   }, [])
-
-  const hanldeWindowSizeChange = () => {
-    setWidth(window.innerWidth)
-  }
 
   const getRandomCard = () => {
     async function getRandomCardFetch() {
@@ -95,6 +88,8 @@ function App() {
   return (
     <div className="App">
       <div className="card-container">
+
+        {console.log(deckData)}
 
         {randomCard === null ? (
             <button onClick={() => {getRandomCard()}}> Press to start!</button>
