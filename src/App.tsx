@@ -62,10 +62,6 @@ function App() {
         } else {
           setRandomCard(request.data.cards[0])
           setRemainingCard(request.data.remaining)
-
-          console.log(randomCard)
-          console.log(request.data.remaining)
-
         }
       } catch(e) {
         console.error(e)
@@ -81,6 +77,8 @@ function App() {
         let request = await axios.get(`https://deckofcardsapi.com/api/deck/${deckDataID}/shuffle/`)
         setRemainingCard(request.data.remaining)
         setDeckData(request.data)
+
+        console.log(deckData)
       } catch(e) {
         console.error(e)
       }
