@@ -56,14 +56,17 @@ function App() {
   const getRandomCard = () => {
     async function getRandomCardFetch() {
       try {
-        let request = await axios.get(`https://deckofcardsapi.com/api/deck/${deckDataID}/draw/?count=1`)
-        if(remainingCard === 0 ) {
-          return
-        } else {
-          setRandomCard(request.data.cards[0])
-          setRemainingCard(request.data.remaining)
-        }
-      } catch(e) {
+          let request = await axios.get(`https://deckofcardsapi.com/api/deck/${deckDataID}/draw/?count=1`)
+          if(remainingCard === 0 ) {
+            return
+          } else {
+              setTimeout(() => {
+                setRandomCard(request.data.cards[0])
+                setRemainingCard(request.data.remaining)
+              }, 100)
+
+            }
+          } catch(e) {
         console.error(e)
       }
     }
