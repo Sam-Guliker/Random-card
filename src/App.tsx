@@ -41,10 +41,6 @@ function App() {
   const [randomCard, setRandomCard] = useState<any>(null)
   const [remainingCard, setRemainingCard] = useState<number>(52)
 
-  // const mobileWidth:number = 768
-  // const width  = window.innerWidth || document.documentElement.clientWidth || 
-  // document.body.clientWidth;
-
   useEffect(() => {
      async function getCardsData() {
       try {
@@ -59,8 +55,8 @@ function App() {
   }, [])
 
   const handleOnclick = (e:any) => {
+    // disables doubleclick problem on phone
     e.preventDefault()
-    console.log(e)
     getRandomCard()
   }
 
@@ -71,11 +67,8 @@ function App() {
           if(remainingCard === 0 ) {
             return
           } else {
-              setTimeout(() => {
-                setRandomCard(request.data.cards[0])
-                setRemainingCard(request.data.remaining)
-              }, 100)
-
+              setRandomCard(request.data.cards[0])
+              setRemainingCard(request.data.remaining)
             }
           } catch(e) {
         console.error(e)
@@ -104,12 +97,12 @@ function App() {
     <div className="App">
       <div className="card-container">
         {randomCard === null ? (
-            <button onClick={(e) => { handleOnclick(e) }}> Press to start!</button>
+            <button onClick={(e) => {handleOnclick(e)}}> Press to start!</button>
           )
           :
           (
             <motion.img 
-              onClick={() => {getRandomCard()}}
+              onClick={(e) => {handleOnclick(e)}}
               src={randomCard.image}
               alt={randomCard.image}
               whileTap={{ scale: 0.9 }}
